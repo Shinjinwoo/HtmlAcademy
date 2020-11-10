@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+img{
+	width:500px; 
+	height:350px;
+}
+.mySlides{
+	display:none;
+}
+a.leftbtn{position:absolute;top:45%;left:0;}
+a.rightbtn{position:absolute;top:45%;right:0;}
+div.large{max-width:100%; position:relative; }
+div.small{max-width:500px;position:relative;}
+</style>
+<script>
+var slideIndex=1; // 슬라이드쇼에 이용할 슬라이더의 인덱스이다.
+
+function plusDivs(n) { //인덱스에 추가할 요소들을
+ 					   //plusDivs함수를이용해 n인자를 받는다.
+					   //plusDivs를 통해 받은 n을 ShowDivs를 통해 n을 넘겨 받는다.
+  showDivs(slideIndex += n);
+}
+function showDivs(n) { 
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  //picture 1~5.jpg 5개의 엘리멘트를 document.getElementsByClassName으로 받고
+  //변수 X에 저장한다.
+  if (n > x.length) {slideIndex = 1}
+  // n이 변수x의 길이보다 클 경우 슬라이드 인덱스는 1이다.    
+  if (n < 1) {slideIndex = x.length} ;
+  // n이 1보다 작을경우 슬라이드인덱스는 x의 길이이다.
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  // i 가 x의 길이보다 작을동안 돌아가는 반복문이다.
+  // x[i] 의 요소를 박스가 생성되지 않고 공간을 차지하지 않는 요소로 보여준다.
+  x[slideIndex-1].style.display = "block";  
+  // x[슬라이드인덱스의 -1 ]을 block 요소 처럼 표시한다.
+  // 따라서 요소 앞뒤로 줄바꿈이 이루어진다.
+}
+</script>
+</head>
+<body onload="showDivs(1)">
+<!-- showDivs에 1을 넘겨준다. -->
+<div align="center" class="large">
+	<h2 align="center">Manual Slides</h2>
+	<div class="small">
+		<img class="mySlides" src="picture/s1.jpg">
+		<img class="mySlides" src="picture/s2.jpg">
+		<img class="mySlides" src="picture/s3.jpg">
+		<img class="mySlides" src="picture/s4.jpg">
+		<img class="mySlides" src="picture/s5.jpg">
+		<!-- 변수 x의 mySlides의 엘리먼트들이다. 1~5 -->
+		
+		<a class="leftbtn" onclick="plusDivs(-1)">◀</a>
+		<!--plusDivs함수속 슬라이드 인덱스에 -1 인자를
+			 넘겨줌으로써 showDives 함수에서 
+			전 그림을 표시한다.-->
+		<a class="rightbtn" onclick="plusDivs(1)">▶</a>
+		<!--plusDivs함수속 슬라이드 인덱스에 1 인자를
+			 넘겨줌으로써 showDives 함수에서 
+		전 그림을 표시한다.-->
+	</div>
+</div>
+</body>
+</html> 
