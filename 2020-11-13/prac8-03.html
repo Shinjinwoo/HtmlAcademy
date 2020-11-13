@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    span {
+        visibility: hidden;
+        color : blue; }
+
+    </style>
+    <script>
+        function show() {
+            var objArray = document.getElementsByTagName("span");
+            // Document 인터페이스의 getElementsByTagName 메소드는 엘리먼트의
+            //  HTMLCollection 과 주어진 태그명을 반환합니다
+            //  루트 노드를 포함해 전체 다큐먼트를 대상으로 검색됩니다
+            //  반환된 HTMLCollection 은 살아있는데, 
+            //  이는 document.getElementsByTagName() 을 다시 호출하지 
+            //  않아도 자동으로 업데이트하여 DOM 트리와 동기화된 상태를 
+            //  유지함을 의미합니다.
+            for ( var i = 0 ; i < objArray.length; i++ ){
+                var obj = objArray[i];
+                var style = window.getComputedStyle(obj);
+                // Window.getComputedStyle() 메소드는 인자로
+                // 전달받은 요소의 모든 CSS 속성값을 담은 객체를 회신합니다.
+                // 이 속성값들은, 해당 요소에 대하여 활성 스타일시트와 속성값에
+                // 대한 기본 연산이 모두 반영된 결과값입니다.
+                // 개별 CSS속성 값은 객체를 통해 제공되는
+                // API 또는 CSS 속성 이름을 사용해서 간단히
+                // 색인화해서 액세스할 수 있습니다.
+                var v = style.getPropertyValue("visibility");
+                // CSSStyleDeclaration.getPropertyValue
+                //  () 메소드 인터페이스는 반환 DOMString특정
+                //   CSS 속성 값을 포함.
+                if ( v == "hidden")
+                    obj.style.visibility = "visible";
+                else
+                    obj.style.visibility = "hidden";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>다음 빈 곳에 숨은 단어 ?
+    <button onclick="show()">show/hide</button>
+    </h3><hr>
+    <ul>
+        <li>I (<span>love</span>) you.
+        <li>CSS is Cascading
+            (<span>Style</span>) Sheet.
+        <li>응답하라 (<span>1988</span>).
+    </ul>
+
+</body>
+</html>
