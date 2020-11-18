@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onclick</title>
+    <script>
+        function calculate() {
+            // 3번
+            var exp = document.getElementById("exp");
+            var result = document.getElementById("result");
+            result.value = eval(exp.value);
+            //eval = 문자열을 코드로 인식하게 하는 함수.
+            // 예를 들어 eval( '2+2' )는 문자열 2+2가 아니라 계산한 결과 4.
+            //이 result의 value는 exp.value를 문자열이 아닌 코드로 인식후
+            //연산결과를 저장함.
+        }
+    </script>
+</head>
+
+<body>
+    <h3>onclick, 계산기 만들기 </h3>
+    <hr>
+    계산하고자 하는 수식을 입력하고 계산 버튼을 눌러보기
+    <p>
+    <form>
+        식 <input type="text" id="exp" value=""><br>
+        <!-- 1번 -->
+        값 <input type="text" id="result">
+        <!-- 4번 -->
+        <input type="button" value=" 계산  " onclick="calculate()">
+        <!-- 2번 -->
+    </form>
+</body>
+
+</html>

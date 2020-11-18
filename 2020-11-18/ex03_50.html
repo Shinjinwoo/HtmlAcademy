@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식</title>
+    <script>
+        function processs() {
+           var date=document.getElementById('hire_date').value;
+           var patt=
+           new RegExp("^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|1[0-9]|2[0-9]|3[01])$");
+        
+        //날짜와 관련된 정규식이다.
+        //0-9 숫자가 4번 반복되면 년도이고.
+        //앞자리가 0인 1-9 개월수 0월은 없으므로 1부터 시작이다.
+        //10의 자리수부터 시작하는 숫자는 12월이 마지막이므로 1[012]로 표현
+        //뒤에 표현식은 일자를 계산하는 정규식이다.
+
+        if(patt.test(date)){
+            alert("입사축하");
+        }else
+            alert("다시입력");
+        }
+    </script>
+</head>
+<body>
+    <span>입사연월일</span> 
+    <!-- 예시 : 2014-01-24 -->
+    <input type = "text" name = "hire_date" id = "hire_date"/>
+    <input type = "button" value="commit" onclick="processs()"/>
+
+</body>
+</html>
