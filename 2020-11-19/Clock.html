@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout()/clearTimeout()</title>
+    <script>
+        var date = new Date();
+        document.write("현재시간 : " + date.toUTCString() + "<hr>");
+        var NotOnloadTime = date.getFullYear() + "년도" + "<br>" + date.getMonth() + "월" + date.getDay() +
+         "일" + date.getHours() + "시" + date.getMinutes() + "분";
+        document.write(NotOnloadTime);
+
+        function showClock() {
+            var currentDate = new Date();
+            var divClock = document.getElementById("divClock");
+            var apm = currentDate.getHours();
+            if (apm < 12) {
+                apm = "오전";
+            }
+            else {
+                apm = "오후";
+            }
+
+            var msg = apm + (currentDate.getHours() - 12) + ":";
+            msg += currentDate.getMinutes() + ":";
+            msg += currentDate.getSeconds() + "";
+
+            divClock.innerText = msg;
+
+            setTimeout(showClock, 1000);
+        }
+    </script>
+    <style>
+        div {
+            display: inline-block;
+            width: 7em;
+            border: 1px solid gray;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body onload="showClock()">
+    <h3>div 태그에 시계 만들기</h3>
+    <hr>
+    <div id="divClock" class="clock"></div>
+</body>
+
+</html>
