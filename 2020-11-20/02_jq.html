@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src = "jquery-3.5.1.min.js"> </script>
+    <script src ="//code.jquery.com/jquery-latest.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $(document).ready(function () {
+            // 버튼 태그중 hide 클래스
+            $("button.hide").click(function () {
+                // p 태그 hide (숨김)
+                $("p").hide();
+            })
+            // 버튼 태그중 show 클래스
+            $("button.show").click(function () {
+                // p 태그 show (보임)
+                $("p").show();
+            });
+        });
+    </script>
+</head>
+<body>
+    <p> 문서 준비 이벤트에는 여러 다중 이벤트를 정의 할 수 있습니다. </p>
+    <p> 버튼을 클릭하면이벤트를 처리를 합니다.</p>
+    <button class="hide" > 메시지 삭제 </button>
+    <buttonn class ="show"> 메시지 보기 </buttonn>
+    
+</body>
+</html>
