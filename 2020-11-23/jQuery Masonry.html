@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masonry</title>
+    <style>
+        * { margin : 0; padding : 0; }
+        .box {
+            background : black;
+            margin : 5px;
+        }
+    </style>
+    <script src = "http://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src = "http://masonry.desandro.com/masonry.pkgd.min.js"></script>
+    <script>
+        // 이벤트를 연결한다.
+        $(document).ready(function () {
+            // 문서 객체를 생성한다.
+            for ( var i = 0; i < 100; i++){
+                //10번의 반복문
+                $('<img>').attr('src','image'+((i%2)+1)+'.jpg').addClass('box').css({
+                    //img 태그에 경로를 설정해서 2로 나눈 나머지에 +1 을 더한다.
+                    //div 태그에 css의 box 클래스를 에드함
+                    width: 100,
+                    //가로폭 100
+                    height: Math.floor(Math.random()*100 ) + 50
+                    //소수점을 버리는 math.floor를 이용해 난수에 100을 곱하고
+                    // 50을 더한다.
+                }).appendTo('body');
+                // 바디에 객체를 추가한다.
+            }
+            // Masonry 플러그인을 적용합니다.
+            $('body').masonry({
+                columnWidth : 110
+                // body의 masonry 함수를 이용하여 열넓이를 110으로 지정
+            });
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

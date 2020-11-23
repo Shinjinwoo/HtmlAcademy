@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- 1. 지도 노드 -->
-    <div id="daumRoughmapContainer1605604611195" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+    <!-- 찾아오시는 길을 구현한 페이지이다.
+    네이버나 카카오캡에서 API를 받아올 생각 이였으나
+    블로그용 HTML 태그 소스를 제공해주어서 응용했다.-->
 
-    <!--
-	2. 설치 스크립트
+	<!--2. 설치 스크립트
 	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
 -->
     <script charset="UTF-8" class="daum_roughmap_loader_script"
@@ -17,73 +17,93 @@
 
         <title>페이지 제작</title>
         <link rel="stylesheet" href="css/style.css">
-
+<!-- CSS 스타일 시트로 이동 -->
 </head>
-
-
 <body>
-   <!-- nav --------------------------------------------- -->
-   <nav>
-    <div class="container">
-        <ul class="leftMenu">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="galary.html">갤러리</a></li>
-            <li class="dropBox">
-                <a href="board.html">게시판</a>
-                <span class="dropmenu">
-                    <span><a href="#">자유 게시판</a></span>
-                    <span><a href="#">문의 게시판</a></span>
-                    <span><a href="#">건의 게시판</a></span>
-                </span>
-            </li>
-            <li class="dropBox">
-                <a href="">멀티미디어</a>
-                <span class="dropmenu">
-                    <span><a href="music.html">음악듣기</a></span>
-                    <span><a href="video.html">동영상보기</a></span>
-                </span>
-            </li>
-            <li><a href="#">상품구매</a></li>
-            <li><a href="#">찾아오시는길</a></li>
-        </ul>
-        <ul class="rightMenu">
-            <li><a href="register.html">회원가입</a></li>
-            <li><a href="login.html">로그인</a></li>
-        </ul>
-    </div>
-</nav>
-<!-- //nav -->
+	<!-- header -->
+    <header>
+		<div class="container">
+			<div class="logo">
+				<img src="image/logo.png">
+				<!-- 로고 이미지  -->
+			</div>
+			<ul class="sidemenu">
+				<!-- 오른쪽 상단에 뜨는 사이드 메뉴 버튼 -->
+				<li><a href="index.html">Home</a></li>
+				<!-- index.html즉 홈으로 이동하는 버튼이다. -->
+				<li><a href="sitemap.html">Sitemap</a></li>
+				<!-- 사이트맵으로 이동하는 버튼 -->
+			</ul>
+		</div>
+	</header>
+	<!-- //header -->
+
+<!-- nav --------------------------------------------- -->
+	<nav>
+		<div class="container">
+			<ul class="leftMenu">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li><a href="galary.html">갤러리</a></li>
+				<li class="dropBox">
+					<a href="board.html">게시판</a> 
+					<span class="dropmenu"> 
+						<span><a href="#">자유 게시판</a></span> 
+						<span><a href="#">문의 게시판</a></span> 
+						<span><a href="#">건의 게시판</a></span>
+						<!-- 자유 게시판, 문의 게시판, 건의 게시판은
+							 백엔드와 연동해서 구축해야 완벽하므로 
+							섣불리 구현하진 않았다. -->
+					</span>
+				</li>
+				<li class="dropBox">
+					<a href="">멀티미디어</a> 
+					<span class="dropmenu"> 
+						<span><a href="music.html">음악듣기</a></span> 
+						<!-- 음악감상실로 이동 -->
+						<span><a href="video.html">동영상보기</a></span> 
+						<!-- 동영상을 보는 html 페이지  -->
+					</span>
+				</li>
+				<li><a href="shop.html">상품구매</a></li>
+				<!-- 상품구매 페이지 -->
+				<li><a href="thewaytofind.html">찾아오시는길</a></li>
+				<!-- 찾아 오시는 길  -->
+			</ul>
+			<ul class="rightMenu">
+				<li><a href="register.html">회원가입</a></li>
+				<!-- 회원가입 페이지 -->
+				<li><a href="login.html">로그인</a></li>
+				<!-- 로그인 페이지 -->
+			</ul>
+		</div>
+	</nav>
+	<!-- //nav -->
 
 <!-- register -->
 <div id="logo">
     <pre>
 
-                        Address        서울시 관악구 남부순환로 1811
+                        Address        서울 관악구 관악로30길 27
+                                       (우) 08734(지번) 봉천동 1717
 
-                        Subway         2호선 서울대입구역 5번 출구 도보 1분
+                        Subway         2호선 서울대입구역 7번출구 마을버스 07번 탑승후 종점에서 하차
 
-                        TEL            010-3151-5947
-                        FAX            02-877-4140
+                        TEL            010-3009-0054
+
 
 </pre>
     <!-- * 카카오맵 - 지도퍼가기 -->
     <!-- 1. 지도 노드 -->
-    <div id="daumRoughmapContainer1605602920695" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+    <div id="daumRoughmapContainer1606017127807" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 
-    <!--
-2. 설치 스크립트
-* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
--->
-    <script charset="UTF-8" class="daum_roughmap_loader_script"
-        src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 
     <!-- 3. 실행 스크립트 -->
     <script charset="UTF-8">
         new daum.roughmap.Lander({
-            "timestamp": "1605602920695",
-            "key": "22yqs",
-            "mapWidth": "1000",
-            "mapHeight": "400"
+            "timestamp" : "1606017127807",
+            "key" : "2334x",
+            "mapWidth" : "1000",
+            "mapHeight" : "400"
         }).render();
     </script>
 

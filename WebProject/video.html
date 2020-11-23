@@ -4,55 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <title>페이지 제작</title>
+    <!-- 음악감상 페이지와 같이 
+        구현한 비디오 재생실이다. -->
     <link rel="stylesheet" href="css/style.css">
+<!-- CSS 스타일 시트로 이동 -->
 </head>
-
 <body>
-    <!-- header -->
+	<!-- header -->
     <header>
-        <div class="container">
-            <div class="logo">
-                <img src="image/logo.png">
-            </div>
-            <ul class="sidemenu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sitemap</a></li>
-            </ul>
-        </div>
-    </header>
-    <!-- //header -->
+		<div class="container">
+			<div class="logo">
+				<img src="image/logo.png">
+				<!-- 로고 이미지  -->
+			</div>
+			<ul class="sidemenu">
+				<!-- 오른쪽 상단에 뜨는 사이드 메뉴 버튼 -->
+				<li><a href="index.html">Home</a></li>
+				<!-- index.html즉 홈으로 이동하는 버튼이다. -->
+				<li><a href="sitemap.html">Sitemap</a></li>
+				<!-- 사이트맵으로 이동하는 버튼 -->
+			</ul>
+		</div>
+	</header>
+	<!-- //header -->
 
-    <!-- nav --------------------------------------------- -->
-    <nav>
-        <div class="container">
-            <ul class="leftMenu">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="galary.html">갤러리</a></li>
-                <li class="dropBox">
-                    <a href="board.html">게시판</a>
-                    <span class="dropmenu">
-                        <span><a href="#">자유 게시판</a></span>
-                        <span><a href="#">문의 게시판</a></span>
-                        <span><a href="#">건의 게시판</a></span>
-                    </span>
-                </li>
-                <li class="dropBox">
-                    <a href="">멀티미디어</a>
-                    <span class="dropmenu">
-                        <span><a href="music.html">음악듣기</a></span>
-                        <span><a href="video.html">동영상보기</a></span>
-                    </span>
-                </li>
-                <li><a href="#">상품구매</a></li>
-                <li><a href="#">찾아오시는길</a></li>
-            </ul>
-            <ul class="rightMenu">
-                <li><a href="register.html">회원가입</a></li>
-                <li><a href="login.html">로그인</a></li>
-            </ul>
-        </div>
-    </nav>
-    <!-- //nav -->
+<!-- nav --------------------------------------------- -->
+	<nav>
+		<div class="container">
+			<ul class="leftMenu">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li><a href="galary.html">갤러리</a></li>
+				<li class="dropBox">
+					<a href="board.html">게시판</a> 
+					<span class="dropmenu"> 
+						<span><a href="#">자유 게시판</a></span> 
+						<span><a href="#">문의 게시판</a></span> 
+						<span><a href="#">건의 게시판</a></span>
+						<!-- 자유 게시판, 문의 게시판, 건의 게시판은
+							 백엔드와 연동해서 구축해야 완벽하므로 
+							섣불리 구현하진 않았다. -->
+					</span>
+				</li>
+				<li class="dropBox">
+					<a href="">멀티미디어</a> 
+					<span class="dropmenu"> 
+						<span><a href="music.html">음악듣기</a></span> 
+						<!-- 음악감상실로 이동 -->
+						<span><a href="video.html">동영상보기</a></span> 
+						<!-- 동영상을 보는 html 페이지  -->
+					</span>
+				</li>
+				<li><a href="shop.html">상품구매</a></li>
+				<!-- 상품구매 페이지 -->
+				<li><a href="thewaytofind.html">찾아오시는길</a></li>
+				<!-- 찾아 오시는 길  -->
+			</ul>
+			<ul class="rightMenu">
+				<li><a href="register.html">회원가입</a></li>
+				<!-- 회원가입 페이지 -->
+				<li><a href="login.html">로그인</a></li>
+				<!-- 로그인 페이지 -->
+			</ul>
+		</div>
+	</nav>
+	<!-- //nav -->
     <!-- register -->
 
     <!-- register -->

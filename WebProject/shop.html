@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>페이지 제작</title>
+<!-- 상품을 구매할수 있는 페이지이다 프론트엔드 부분이다.
+      팔면 재미있을것 같은 아이탬들을 수록했고
+      이부분을 작성하면서 백엔드로 관리자가 상품을 올리는 
+      아키텍쳐를 한번 생각해 보았다. JSP를 배우면 구현하는데
+    분명 재미있을것 같았다. -->
+<link rel="stylesheet" href="css/style.css">
+<!-- CSS 스타일 시트로 이동 -->
+</head>
+<body>
+	<!-- header -->
+    <header>
+		<div class="container">
+			<div class="logo">
+				<img src="image/logo.png">
+				<!-- 로고 이미지  -->
+			</div>
+			<ul class="sidemenu">
+				<!-- 오른쪽 상단에 뜨는 사이드 메뉴 버튼 -->
+				<li><a href="index.html">Home</a></li>
+				<!-- index.html즉 홈으로 이동하는 버튼이다. -->
+				<li><a href="sitemap.html">Sitemap</a></li>
+				<!-- 사이트맵으로 이동하는 버튼 -->
+			</ul>
+		</div>
+	</header>
+	<!-- //header -->
+
+<!-- nav --------------------------------------------- -->
+	<nav>
+		<div class="container">
+			<ul class="leftMenu">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li><a href="galary.html">갤러리</a></li>
+				<li class="dropBox">
+					<a href="board.html">게시판</a> 
+					<span class="dropmenu"> 
+						<span><a href="#">자유 게시판</a></span> 
+						<span><a href="#">문의 게시판</a></span> 
+						<span><a href="#">건의 게시판</a></span>
+						<!-- 자유 게시판, 문의 게시판, 건의 게시판은
+							 백엔드와 연동해서 구축해야 완벽하므로 
+							섣불리 구현하진 않았다. -->
+					</span>
+				</li>
+				<li class="dropBox">
+					<a href="">멀티미디어</a> 
+					<span class="dropmenu"> 
+						<span><a href="music.html">음악듣기</a></span> 
+						<!-- 음악감상실로 이동 -->
+						<span><a href="video.html">동영상보기</a></span> 
+						<!-- 동영상을 보는 html 페이지  -->
+					</span>
+				</li>
+				<li><a href="shop.html">상품구매</a></li>
+				<!-- 상품구매 페이지 -->
+				<li><a href="thewaytofind.html">찾아오시는길</a></li>
+				<!-- 찾아 오시는 길  -->
+			</ul>
+			<ul class="rightMenu">
+				<li><a href="register.html">회원가입</a></li>
+				<!-- 회원가입 페이지 -->
+				<li><a href="login.html">로그인</a></li>
+				<!-- 로그인 페이지 -->
+			</ul>
+		</div>
+	</nav>
+	<!-- //nav -->
+	
+	<!-- section3 --------------------------------------------- -->
+    <section id="section3">
+        <div class="container">
+            <h1>갤러리</h1>
+            <div style="text-align : center;" class="box">
+                <div class="image_box">
+
+                    <!-- 클릭 리스너를 통해 클릭을 하게 되면 showDivs(n) 함수로 로드  -->
+                    <img src="image/1.PNG" alt="" onclick="showDivs(1)">
+                </div>
+                <div class="des">
+                    [리그오브레전드] <br>FPX 우승컵 미니 피규어<br> 15,000원
+                </div>
+            </div>
+            <div style="text-align : center;" class="box">
+                <div class="image_box">
+                    <img src="image/2.PNG" alt="" onclick="showDivs(2)">
+                </div>
+                <div class="des">
+                    [리그오브레전드] <br> K/DA ALL OUT 힙색 <br> 54,000원
+                </div>
+            </div>
+            <div style="text-align : center;" class="box">
+                <div class="image_box">
+                    <img src="image/3.PNG" alt="" onclick="showDivs(3)">
+                </div>
+                <div class="des">
+                    [리그오브레전드] <br>우르프 잠옷<br> 88,000원
+                </div>
+            </div>
+            <div style="text-align : center;" class="box">
+                <div class="image_box">
+                    <img src="image/4.PNG" alt="" onclick="showDivs(4)">
+                </div>
+                <div class="des">
+                    [리그오브레전드] <br>꿀잼 티모 잠옷<br> 89,000원
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="clear"></div>
+    <!-- //section3 -->
+    
+    <div id="back"></div>
+    <div id="popup">
+        <div class="title">상품 갤러리 <span class="close" onclick="closePopup()">&times;</span></div>
+         <div align="center" class="large">
+			<div class="small">
+				<img class="mySlides" src="image/1.png">
+				<img class="mySlides" src="image/2.png">
+				<img class="mySlides" src="image/3.png">
+				<img class="mySlides" src="image/4.png">
+				
+				<a class="leftbtn" onclick="plusDivs(-1)">◀</a>
+				<a class="rightbtn" onclick="plusDivs(1)">▶</a>
+			</div>
+		</div>
+    </div>
+    
+    <!-- footer -->
+    <footer>    
+        <div class="top">
+            <div class="container">
+                <span>다운로드</span>
+                <span>개인정보처리방침</span>
+                <span>저작권지침및신고</span>
+                <span>이메일무단수집거부</span>
+            </div>
+        </div>
+        <div class="container">
+            <strong>
+                Home : Location Log : Tag Log : Media Log : Guestbook : Admin : New Post
+            </strong>
+            <div class="copyright">
+                COPYRIGHT Ⓒ cita's BLOG IS POWERED BY DAUM / DESIGNED BY TISTORY
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    
+	<script>
+		var slideIndex=0;
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+		function showDivs(n) {
+		  var i;
+		  slideIndex = n;
+          var x = document.getElementsByClassName("mySlides");
+        //picture 1~5.jpg 5개의 엘리멘트를
+        //document.getElementsByClassName으로 받고
+        //변수 X에 저장한다. 
+
+          if (n > x.length) {slideIndex = 1}  
+        // n이 변수x의 길이보다 클 경우 슬라이드 인덱스는 1이다.   
+          if (n < 1) {slideIndex = x.length} ;
+        // n이 1보다 작을경우 슬라이드인덱스는 x의 길이이다. 
+
+		  for (i = 0; i < x.length; i++) {
+		     x[i].style.display = "none";  
+          }
+        // i 가 x의 길이보다 작을동안 돌아가는 반복문이다.
+        // x[i] 의 요소를 박스가 생성되지 않고 공간을 차지하지 않는 요소로 보여준다. 
+          
+          x[slideIndex-1].style.display = "block";  
+        // x[슬라이드인덱스의 -1 ]을 block 요소 처럼 표시한다.
+        // 따라서 요소 앞뒤로 줄바꿈이 이루어진다. } 
+		  document.getElementById("back").style.display = "block";
+		  document.getElementById("popup").style.display = "block"; 
+		} 
+		
+		function closePopup(){
+			document.getElementById("back").style.display = "none";
+		    document.getElementById("popup").style.display = "none";
+		}
+	</script>
+</body>
+</html>

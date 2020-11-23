@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 사이트의 간략한 구조를 보여주는 사이트맵이다.
+    웹 프로그래밍은 처음이라 사이트맵에 대한 개념부터 검색해가면서
+    천천히 구현했다. table 태그를 이용해 간략하고 알가쉽게 구현했다.
+    수업에서 배운 onClick을 유용하게 쓸수 있어서 좋았다. -->
+    <link rel="stylesheet" href="css/style.css">
+<!-- CSS 스타일 시트로 이동 -->
+</head>
+<body>
+	<!-- header -->
+    <header>
+		<div class="container">
+			<div class="logo">
+				<img src="image/logo.png">
+				<!-- 로고 이미지  -->
+			</div>
+			<ul class="sidemenu">
+				<!-- 오른쪽 상단에 뜨는 사이드 메뉴 버튼 -->
+				<li><a href="index.html">Home</a></li>
+				<!-- index.html즉 홈으로 이동하는 버튼이다. -->
+				<li><a href="sitemap.html">Sitemap</a></li>
+				<!-- 사이트맵으로 이동하는 버튼 -->
+			</ul>
+		</div>
+	</header>
+	<!-- //header -->
+
+<!-- nav --------------------------------------------- -->
+	<nav>
+		<div class="container">
+			<ul class="leftMenu">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li><a href="galary.html">갤러리</a></li>
+				<li class="dropBox">
+					<a href="board.html">게시판</a> 
+					<span class="dropmenu"> 
+						<span><a href="#">자유 게시판</a></span> 
+						<span><a href="#">문의 게시판</a></span> 
+						<span><a href="#">건의 게시판</a></span>
+						<!-- 자유 게시판, 문의 게시판, 건의 게시판은
+							 백엔드와 연동해서 구축해야 완벽하므로 
+							섣불리 구현하진 않았다. -->
+					</span>
+				</li>
+				<li class="dropBox">
+					<a href="">멀티미디어</a> 
+					<span class="dropmenu"> 
+						<span><a href="music.html">음악듣기</a></span> 
+						<!-- 음악감상실로 이동 -->
+						<span><a href="video.html">동영상보기</a></span> 
+						<!-- 동영상을 보는 html 페이지  -->
+					</span>
+				</li>
+				<li><a href="shop.html">상품구매</a></li>
+				<!-- 상품구매 페이지 -->
+				<li><a href="thewaytofind.html">찾아오시는길</a></li>
+				<!-- 찾아 오시는 길  -->
+			</ul>
+			<ul class="rightMenu">
+				<li><a href="register.html">회원가입</a></li>
+				<!-- 회원가입 페이지 -->
+				<li><a href="login.html">로그인</a></li>
+				<!-- 로그인 페이지 -->
+			</ul>
+		</div>
+	</nav>
+	<!-- //nav -->
+
+
+    <!-- 내용 -->
+    <center>
+        <br><h3>사이트맵</h3><br> <hr>
+        <br><b>세부내용</b><br><br>
+    </center>
+    <table>
+        <tr> 
+            <td onClick = "location.href='index.html'">HOME</td>
+        </tr>
+
+        <tr> 
+            <td onClick = "location.href='galary.html'"> 갤러리</td>
+        </tr>
+        <tr> 
+            <td> 게시판 </td>
+            <td> 자유게시판&nbsp;&nbsp;</td>
+            <td> 문의게시판&nbsp;&nbsp;</td>
+            <td> 건의게시판&nbsp;&nbsp; </td>
+        </tr>
+        <tr>
+            <td > 멀티미디어 &nbsp; </td>
+            <td onClick = "location.href='music.html'"> 음악 듣기</td>
+            <td onClick = "location.href='video.html'"> 동영상 보기</td>
+        </tr>
+        <tr>
+            <td onClick = "location.href='shop.html'">상품구매</td>
+        </tr>
+        <tr>
+            <td onClick = "location.href='thewaytofind.html'"> 찾아오시는길</td>
+        </tr>
+        <tr>
+            <td> 회원정보</td>
+            <td onClick = "location.href='login.html'"> 로그인</td>
+            <td onClick = "location.href='register.html'"> 회원가입</td>
+        </tr>
+
+    </table>
+
+    <br>
+    <br>
+    
+   
+
+    <!-- 내용  -->
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="top">
+            <div class="container">
+                <span>다운로드</span>
+                <span>개인정보처리방침</span>
+                <span>저작권지침및신고</span>
+                <span>이메일무단수집거부</span>
+            </div>
+        </div>
+        <div class="container">
+            <strong>
+                Home : Location Log : Tag Log : Media Log : Guestbook : Admin : New Post
+            </strong>
+            <div class="copyright">
+                COPYRIGHT Ⓒ Cita's BLOG IS POWERED BY DAUM / DESIGNED BY TISTORY
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+
+</body>
+
+</html>

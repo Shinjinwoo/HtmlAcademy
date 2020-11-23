@@ -3,23 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>페이지 제작</title>
+    <!-- 로그인 페이지이다. 소스코드를 쭈욱 보면서
+         스타일이 어떤식으로 돌아가는지 파악했다.
+         한국에서 가장 대중적으로 사용하는 어플인 카카오톡이 없어서
+         카카오톡으로 로그인하기를 구현했다. -->
     <link rel="stylesheet" href="css/style.css">
+<!-- CSS 스타일 시트로 이동 -->
 </head>
 <body>
-    <!-- header -->
+	<!-- header -->
     <header>
-        <div class="container">
-            <div class="logo">
-                <img src="image/logo.png">
-            </div>
-            <ul class="sidemenu">
-               <li><a href="#">Home</a></li> 
-               <li><a href="#">Sitemap</a></li>
-            </ul>
-        </div>
-    </header>
-    <!-- //header -->
-    
+		<div class="container">
+			<div class="logo">
+				<img src="image/logo.png">
+				<!-- 로고 이미지  -->
+			</div>
+			<ul class="sidemenu">
+				<!-- 오른쪽 상단에 뜨는 사이드 메뉴 버튼 -->
+				<li><a href="index.html">Home</a></li>
+				<!-- index.html즉 홈으로 이동하는 버튼이다. -->
+				<li><a href="sitemap.html">Sitemap</a></li>
+				<!-- 사이트맵으로 이동하는 버튼 -->
+			</ul>
+		</div>
+	</header>
+	<!-- //header -->
+
 <!-- nav --------------------------------------------- -->
 	<nav>
 		<div class="container">
@@ -32,21 +41,30 @@
 						<span><a href="#">자유 게시판</a></span> 
 						<span><a href="#">문의 게시판</a></span> 
 						<span><a href="#">건의 게시판</a></span>
+						<!-- 자유 게시판, 문의 게시판, 건의 게시판은
+							 백엔드와 연동해서 구축해야 완벽하므로 
+							섣불리 구현하진 않았다. -->
 					</span>
 				</li>
 				<li class="dropBox">
 					<a href="">멀티미디어</a> 
 					<span class="dropmenu"> 
 						<span><a href="music.html">음악듣기</a></span> 
+						<!-- 음악감상실로 이동 -->
 						<span><a href="video.html">동영상보기</a></span> 
+						<!-- 동영상을 보는 html 페이지  -->
 					</span>
 				</li>
-				<li><a href="#">상품구매</a></li>
-				<li><a href="#">찾아오시는길</a></li>
+				<li><a href="shop.html">상품구매</a></li>
+				<!-- 상품구매 페이지 -->
+				<li><a href="thewaytofind.html">찾아오시는길</a></li>
+				<!-- 찾아 오시는 길  -->
 			</ul>
 			<ul class="rightMenu">
 				<li><a href="register.html">회원가입</a></li>
+				<!-- 회원가입 페이지 -->
 				<li><a href="login.html">로그인</a></li>
+				<!-- 로그인 페이지 -->
 			</ul>
 		</div>
 	</nav>
