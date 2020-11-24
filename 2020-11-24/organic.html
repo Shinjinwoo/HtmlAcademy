@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>신진우 홈페이지</title>
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="jquery.lightbox-0.5.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="js/common.js"></script>
+    <script src = "jquery.lightbox-0.5.js"></script>
+    <script>
+        // 이벤트를 연결한다.
+        $(document).ready(function(){
+            $('a.light').lightBox();
+        });
+    </script>
+</head>
+
+<body>
+    <!-- 헤더 이다. 즉 네비게이션 메뉴 -->
+    <div class="header_cover">
+        <header>
+            <h1><a href="popo.html"></a></h1>
+            <nav>
+                <ul class="main">
+                    <li><a class="dd" href="intro.html">자기 소개</a>
+                        <!-- 브랜드소개 탭에 하위 메뉴들을 네비게이션 메뉴에 표현한다. -->
+                        <ul class="sub">
+                            <li><a href="intro.html">인사말</a></li>
+                            <li><a href="organic.html">이력</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="dd" href="sandwich.html">취미 소개</a>
+                        <!-- 상품소개 탭에 하위 메뉴들을 네비게이션 메뉴로 표현 -->
+                        <ul class="sub">
+                            <li><a href="sandwich.html">사회인 야구</a></li>
+                            <li><a href="smoothie_bowl.html">프로야구 관람</a></li>
+                            <li><a href="salad.html">E스포츠 관람</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="dd" href="mall.html">학원 & 집 위치</a>
+                        <!-- 입점매장 탭에 하위 메뉴들을 네비게이션 메뉴로 표현 -->
+                        <ul class="sub">
+                            <li><a href="mall.html">학원 찾아오는 길</a></li>
+                            <li><a href="shop.html">집 찾아오는 길</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="dd" href="q_a.html">Q & A 및 공지</a>
+                        <!-- 고객지원 탭에 하위 메뉴들을 네비게이션 메뉴로 표현 -->
+                        <ul class="sub">
+                            <li><a href="q_a.html">자주 묻는 질문</a></li>
+                            <li><a href="notice.html">공지사항</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <div class="sub_bg">
+        <center>
+            <br>
+            <br>
+
+            <a class="light" href="3.png">이력사항 클릭</a>
+            <!-- 펭수 사진을 클릭하면 라이트 박스가 열린다. -->
+            <br>
+            <h4> ( 화려하지 않은 제 이력입니다. ) </h4>
+            <br>
+
+            간단한 제 이력을 lightbox를 이용해서 표현해 보았습니다.
+
+        
+        </center>
+    </div>
+    <!-- sub_bg 로 배경화면 설정 -->
+    <div class="contents"></div>
+    <div class="footer_cover">
+        <!-- 푸터이다. -->
+        <footer>
+            <h2><a href="index.html"><img src="logo.png"></a></h2>
+            <!-- 로모 이미지를 하단에 첨부한다. 네비게이션 메뉴에 있는
+            로고 이미지는 commn.css메뉴에 위치를 설정 할 수 있다. -->
+            <div class="copy">
+                <p>CEO:신진우 | TEL:010-0000-0000 | ADDRESS : 서울시 관악구</p>
+                <p>COPYRIGHT &copy;KSR.ALL RIGHTS RESERVED</p>
+                <!--저작권과 대표의 인적사항을 적어넣은 푸터의 내용이다.-->
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

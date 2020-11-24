@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신진우 홈페이지</title>
+    <style>
+        * { margin : 0; padding : 0; }
+        .box {
+            background : black;
+            margin : 5px;
+        }
+    </style>
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="js/common.js"></script>
+    <script src = "http://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src = "http://masonry.desandro.com/masonry.pkgd.min.js"></script>
+
+</head>
+<body>
+    <!-- 헤더 이다. 즉 네비게이션 메뉴 -->
+    <div class="header_cover">
+        <header>
+            <h1><a href="popo.html"></a></h1>
+            <nav>
+                <ul class="main">
+                    <li><a class="dd" href="intro.html">자기 소개</a>
+                        <!-- 브랜드소개 탭에 하위 메뉴들을 네비게이션 메뉴에 표현한다. -->
+                        <ul class="sub">
+                            <li><a href="intro.html">인사말</a></li>
+                            <li><a href="organic.html">이력</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="dd" href="sandwich.html">취미 소개</a>
+                        <!-- 상품소개 탭에 하위 메뉴들을 네비게이션 메뉴로 표현 -->
+                        <ul class="sub">
+                            <li><a href="sandwich.html">사회인 야구</a></li>
+                            <li><a href="smoothie_bowl.html">프로야구 관람</a></li>
+                            <li><a href="salad.html">E스포츠 관람</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="dd" href="mall.html">학원 & 집 위치</a>
+                        <!-- 입점매장 탭에 하위 메뉴들을 네비게이션 메뉴로 표현 -->
+                        <ul class="sub">
+                            <li><a href="mall.html">학원 찾아오는 길</a></li>
+                            <li><a href="shop.html">집 찾아오는 길</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="dd" href="q_a.html">Q & A 및 공지</a>
+                        <!-- 고객지원 탭에 하위 메뉴들을 네비게이션 메뉴로 표현 -->
+                        <ul class="sub">
+                            <li><a href="q_a.html">자주 묻는 질문</a></li>
+                            <li><a href="notice.html">공지사항</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <div class="sub_bg">
+        <center>
+            <br>
+            <br>
+            <img src = "123.gif">
+            <!-- 홈페이지 첫 화면이 심심해 보여서 gif를 하나 넣었다. -->
+            <pre >
+
+                안녕하세요. 더조은 아카데미 자바기반 안드로이드반 입니다.
+                저는 수강생 신진우 입니다.
+                제 스스로 조금 덧붙여 편집하고 있는 페이지 입니다.
+                <!-- 자기소개글 -->
+            </pre>
+        </center>
+    </div>
+    <!-- sub_bg 로 배경화면 설정 -->
+    <div class="contents">
+        <!-- 컨텐츠 태그이다. -->
+        <script>
+            // 이벤트를 연결한다.
+            $(document).ready(function () {
+                // 문서 객체를 생성한다.
+                for ( var i = 0; i < 100; i++){
+                    //100번의 반복문
+                    $('<img>').attr('src','image'+((i%3)+1)+'.jpg').addClass('box').css({
+                        //img 태그에 경로를 설정해서 2로 나눈 나머지에 +1 을 더한다.
+                        //div 태그에 css의 box 클래스를 에드함
+                        width: 100,
+                        //가로폭 100
+                        height: Math.floor(Math.random()*100 ) + 50
+                        //소수점을 버리는 math.floor를 이용해 난수에 100을 곱하고
+                        // 50을 더한다.
+                    }).appendTo('body');
+                    // 바디에 객체를 추가한다.
+                }
+                // Masonry 플러그인을 적용합니다.
+                $('body').masonry({
+                    columnWidth : 110
+                    // body의 masonry 함수를 이용하여 열넓이를 110으로 지정
+                });
+            });
+        </script>
+
+    </div>
+    <div class="footer_cover">
+        <!-- 푸터이다. -->
+        <footer>
+            <h2><a href="index.html"><img src="logo.png"></a></h2>
+            <!-- 로모 이미지를 하단에 첨부한다. 네비게이션 메뉴에 있는
+            로고 이미지는 commn.css메뉴에 위치를 설정 할 수 있다. -->
+            <div class="copy">
+                <p>CEO:신진우 | TEL:010-0000-0000 | ADDRESS : 서울시 관악구</p>
+                <p>COPYRIGHT &copy;KSR.ALL RIGHTS RESERVED</p>
+                <!--저작권과 대표의 인적사항을 적어넣은 푸터의 내용이다.-->
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
+
