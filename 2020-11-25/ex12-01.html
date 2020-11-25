@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //쿠키 읽기
+        function GetCookie(name) {
+            var str = name + "=";
+            var pairs = document.cookie.split(";"); // 쿠키문자열을 ;을 경계로 분할
+            for (var i = 0; i < pairs.length; i++) {
+                // var pairs의 길이를 기준으로 반복문 수행
+                var pair = pairs[i].trim(); // 쿠키 앞뒤의 빈칸 제거
+                var unit = pair.split("="); // 변수 유닛을 "="로 분할해서 저장
+                if (unit[0] == name) //유닛 배열의 0번쨰 인덱스가 인자로 받은 name과 같으면
+                    return unescape(unit[1]); //unit인덱스의 1을  스트링형식 리턴.
+
+                    // 유닛의 0번쨰 인덱스는 name ( 쿠키의 이름은 유저 네임 )
+                    // 유닛의 1번째 인덱스는 value 값
+            }
+            return null; // 함수 자체는 null을 반환한다.
+        }
+        //쿠키 쓰기
+        function SetCookie(name, value, expireDate) {
+            //쿠키를 셋업한다.
+            //인자로 name, value, expireDate를 넘겨받음
+
+            var cookieStr = name + "=" + escape(value) +
+                ((expireDate == null) ? "" : ("; expires=" + expireDate.toGMTString()));
+            document.cookie = cookieStr;
+            //쿠키를 연결하는 방식으로 저장
+        }
+    </script>
+</head>
+</head>
+
+<body>
+    <script>
+        
+        var username = GetCookie("username");
+        var count = GetCookie("count");
+        //함수를 호출하고  username과 count값을 가져간다.
+
+        var expire = new Date();
+        // expire은 사긴을 나타내는 Date 객체다.
+        if (username == null) {
+            count = 0;
+            // username 이 널값이면 카운트를 0으로 초기화
+
+            username = prompt("이름을 입력해 주십시오.", "");
+            // 유저네임을 프롬프트문으로 입력받는다.
+
+            if (username == null) {
+                alert("이름을 입력하시면 보다 나은 서비를 제공 받을 수 있습니다.");
+                username = "아무개";
+                //유저이름이 null값이면 아무개로 이름을 저장.
+
+            } else {
+                expire.setTime(expire.getTime() + (365 * 24 * 3600 * 1000));
+                // 1년간 쿠키를 저장
+                SetCookie("username", username, expire);
+            }
+        }
+        count++;
+        expire.setTime(expire.getTime() + (365 * 24 * 3600 * 1000));
+        //1년후
+        SetCookie("count", count, expire);
+        document.write('<p>어서오십시오. ' + username + '님의 ' + count + '번째 방문을 환영합니다!');
+    </script>
+</body>
+</html>

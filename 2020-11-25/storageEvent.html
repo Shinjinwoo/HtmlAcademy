@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>로컬 스토리지에 StorageEvent</title></head>
+<body>
+    <h3>로컬 스토리지에 StorageEvent</h3>
+    <hr>
+    품목명 : <input id="item" type="text" size="10">
+    개수 : <input id="count" type="text" size="10">
+    <button id="save" onclick="store()">저장</button>
+    <button id="retrieve" onclick="retrieve()">검색</button>
+    <p>
+        로컬 스토리지의 변경 내용(storage 이벤트):<br>
+        <textarea id="textarea" cols="60" rows="6"></textarea>
+        <script>
+            window.addEventListener("storage", storageEventListener, false);
+
+            function storageEventListener(e) { // e는 StorageEvent 객체
+                var eventDetail = "key:\t\t\t" + e.key + "\n" +
+                    "oldValue:\t\t" + e.oldValue + "\n" +
+                    //이전 벨류
+                    "newValue:\t\t" + e.newValue + "\n" +
+                    //새로운 벨류 
+                    "storageArea:\t" + e.storageArea + "\n" +
+                    //스토리 구역 [object area]
+                    "url:\t\t\t" + e.url;
+                    //html 문서의 url
+                document.getElementById("textarea").innerHTML = eventDetail; 
+                //<textarea>에 출력
+            }
+        </script>
+        <script>
+            var item = document.getElementById("item");
+            var count = document.getElementById("count");
+
+            function store() {
+                if (!window.localStorage) {
+                    alert("로컬스토리지를 지원하지 않습니다.");
+                    //로컬 스토리지를 지원하지 않을때 출력
+                    return;
+                }
+                localStorage.setItem(item.value, count.value);
+            }
+            function retrieve() {
+                if (!window.localStorage) {
+                    alert("로컬스토리지를 지원하지 않습니다.");
+                    //로컬 스토리지를 지원하지 않을때 출력
+                    return;
+                }
+                var val = localStorage.getItem(item.value);
+                //로컬 스토리지에서 키와 값 item.value로 받는다.
+                if (val == null)
+                    alert(item.value + "는 구입 리스트에  없습니다.");
+                // var가 널값이면 alert
+                else
+                    count.value = val;
+                
+            }
+        </script>
+</body>
+
+</html>

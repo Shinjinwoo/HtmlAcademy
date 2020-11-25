@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세션 스토리지에 쓰기/읽기</title>
+</head>
+<body>
+    <h3>세션 스토리지에 구입 리스트 저장/검색</h3><hr>
+    품목 명 : <input id="item" type="text" size="10">
+    개수 : <input id="count" type="text" size="10">
+    <button id="save" onclick="store()">저장</button>
+    <!-- 저장 버튼 -->
+    <button id="retrieve" onclick="retrieve()">검색</button>
+    <!-- 검색 버튼 -->
+    <script>
+        var item = document.getElementById("item");
+        // 변수 item(key)값을 품목의 이름이고
+        // getElmentById로 품목을 받음.
+        var count = document.getElementById("count");
+        // 변수 count는 수량으로서 getElmentById로  수량을 받음
+        function store(){
+            if(!window.sessionStorage) {
+                alert("세션 스토리지를 지원하지 않습니다.");
+                return;
+                //세션 스토리를 지원하지 않으면 alert 메시지 출력
+            }
+
+            sessionStorage.setItem(item.value, count.value);
+        }
+        function retrieve() {
+            if (!window.sessionStorage){
+                alert("세션 스토리지를 지원하지 않습니다.");
+                return;
+                //세션 스토리를 지원하지 않으면 alert 메시지 출력
+            }
+            var val = sessionStorage.getItem(item.value);
+            //세션 스토리지에 getItem 메소드를 사용한다
+            //item (key) 값과 value 값을 받는다.
+            if(val == null)
+            // var 변수가 null값이면 
+            alert(item.value + " 는 구입 리스트에 없습니다.");
+            //alert 메시지 출력
+            else
+            count.value= val;
+            //아닐경우 품목의 수는 val
+        }
+    </script>
+</body>
+</html>
