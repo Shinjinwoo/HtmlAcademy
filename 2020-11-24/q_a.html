@@ -3,12 +3,45 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>신진우 홈페이지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            background: black;
+            margin: 5px;
+        }
+    </style>
     <link href="css/common.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="js/common.js"></script>
+    <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("ans").hide();
+            $("p.q1").click(function () {
+                $("ans.q1").show();
+            });
+
+            $("ans.q1").click(function () {
+                $(this).hide();
+            });
+            $("p.q2").click(function () {
+                $("ans.q2").show();
+            });
+
+            $("ans.q2").click(function () {
+                $(this).hide();
+            });
+        });
+    </script>
+
+
 </head>
 
 <body>
@@ -53,24 +86,20 @@
     </div>
 
     <div class="sub_bg">
-        <center>
-            <br>
-            <br>
-            <img src = "123.gif">
-            <!-- 홈페이지 첫 화면이 심심해 보여서 gif를 하나 넣었다. -->
-            <pre >
+    <center>
+        <h2>질문 1 : 진우는 진짜 잘생겼나요 ?</h2>
+        <p class="q1" >[정답 보기]</p>
+        <ans class = "q1"> 그럴리가요 <Strong> 그냥 사람 </Strong>입니다.</ans>
+        <br></br>
+        <h2>질문 2 : 진우는 여자친구가 있나요 ?</h2>
+        <p class ="q2" > [정답 보기]</p>
+        <ans class ="q2">저는 여자친구가  <strong>없습</strong>니다.</ans>
+    </center>
 
-                안녕하세요. 더조은 아카데미 자바기반 안드로이드반 입니다.
-                저는 수강생 신진우 입니다.
-                제 스스로 조금 덧붙여 편집하고 있는 페이지 입니다.
-                <!-- 자기소개글 -->
-            </pre>
-        </center>
     </div>
     <!-- sub_bg 로 배경화면 설정 -->
     <div class="contents">
         <!-- 컨텐츠 태그이다. -->
-
     </div>
     <div class="footer_cover">
         <!-- 푸터이다. -->

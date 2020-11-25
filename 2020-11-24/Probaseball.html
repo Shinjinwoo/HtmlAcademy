@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>신진우 홈페이지</title>
+    <style>
+        * { margin : 0; padding : 0; }
+        .box {
+            background : black;
+            margin : 5px;
+        }
+    </style>
     <link href="css/common.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="js/common.js"></script>
-</head>
+    <script src = "http://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src = "http://masonry.desandro.com/masonry.pkgd.min.js"></script>
 
+</head>
 <body>
     <!-- 헤더 이다. 즉 네비게이션 메뉴 -->
     <div class="header_cover">
@@ -53,23 +61,40 @@
     </div>
 
     <div class="sub_bg">
-        <center>
-            <br>
-            <br>
-            <img src = "123.gif">
-            <!-- 홈페이지 첫 화면이 심심해 보여서 gif를 하나 넣었다. -->
-            <pre >
+        <script>
+            // 이벤트를 연결한다.
+            $(document).ready(function () {
+                // 문서 객체를 생성한다.
+                for ( var i = 0; i < 100; i++){
+                    //100번의 반복문
+                    $('<img>').attr('src','images'+((i%3)+1)+'.jpg').addClass('.sub_bg').css({
+                        //img 태그에 경로를 설정해서 2로 나눈 나머지에 +1 을 더한다.
+                        //div 태그에 css의 box 클래스를 에드함
+                        width: 100,
+                        //가로폭 100
+                        height: Math.floor(Math.random()*100 ) + 50
+                        //소수점을 버리는 math.floor를 이용해 난수에 100을 곱하고
+                        // 50을 더한다.
+                    }).appendTo('.sub_bg');
+                    // 바디에 객체를 추가한다.
+                }
+                // Masonry 플러그인을 적용합니다.
+                $('.sub_bg').masonry({
+                    columnWidth : 110
+                    // body의 masonry 함수를 이용하여 열넓이를 110으로 지정
+                });
+            });
+        </script>
 
-                안녕하세요. 더조은 아카데미 자바기반 안드로이드반 입니다.
-                저는 수강생 신진우 입니다.
-                제 스스로 조금 덧붙여 편집하고 있는 페이지 입니다.
-                <!-- 자기소개글 -->
-            </pre>
-        </center>
     </div>
     <!-- sub_bg 로 배경화면 설정 -->
     <div class="contents">
         <!-- 컨텐츠 태그이다. -->
+        <center><br><br>
+        제가 좋아하는 프로야구 야구팀들의 로고를 보여주는 페이지 입니다. <br>
+        Masonry 플러그인을통해 브라우저의 창이 바뀌어도 표현할수 있도록 노력했습니다. <br>
+        저는 기본적으로 엘지 트윈스를 제일 좋아하지만 그 다음으로는 수도권 구단들에도 호감이 있습니다.
+        </center>
 
     </div>
     <div class="footer_cover">
