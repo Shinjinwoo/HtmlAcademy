@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>단어장 만들기</title>
+<script>
+function store() {
+	if(!window.localStorage) {		
+		// 브라우저나 창이 로컬스토리지를 지원하지 않을때
+		alert("지원하지 않습니다."); 
+		return;
+	}
+	var engWord = document.getElementById("eng").value;
+	engWord = engWord.trim();
+	var korWord = document.getElementById("kor").value;
+	korWord = korWord.trim();
+	
+	// 단어가 이미 있는지 확인
+	if(localStorage.getItem(engWord) != null) {
+		var ret = confirm(engWord + "가 이미 있습니다. 수정하시겠습니까?");
+		if(ret == false) // 수정을 원치 않으면 그냥 리턴
+			return;
+	}
+
+	// 로컬 스토리지에 저장(혹은 수정)
+	var ret = localStorage.setItem(engWord, korWord);
+	
+	// 저장 후 <input>에 입력된 단어 지우기
+	document.getElementById("eng").value = "";
+	document.getElementById("kor").value = "";
+}
+
+function search() {
+	if(!window.localStorage) {
+		alert("지원하지 않습니다."); 
+		return;
+	}
+	var engWord = document.getElementById("eng").value;
+	// eng라는 ID를 가진 라벨의 값을 입력받은후 영단어로 저장.
+	if(engWord == "")
+		return; // 입력된 것이 없음
+		
+	engWord = engWord.trim(); // 앞 뒤 빈칸 삭제
+
+	// trim() 메소드 : 문자열의 공백을 삭제하는 메서드 
+
+	var korWord = localStorage.getItem(engWord);
+	// 한글단어는 로컬 스터리지에서 getItem메서드를 통해 engWord를 키값으로 벨류를 받는다.
+	if(korWord == null) {
+		// 한글단어가 널값이면 메시지를 출력한다.
+		alert(engWord + "는 없는 단어입니다.");
+		document.getElementById("kor").value = "";
+		return;		
+	}
+	
+	var korObj = document.getElementById("kor");
+	//변수 korOnj 는 kor을 통해 키를 입력받는다.
+	korObj.value = korWord;
+	//korObj.value의 값은 korWord이다.
+}
+
+function remove() {
+	if(!window.localStorage) {
+		alert("지원하지 않습니다."); 
+		// 브라우저나 창이 로컬 스터리지를 지원하지 않는경우.
+		return;
+	}
+	var engWord = document.getElementById("eng").value;
+	if(engWord == "")
+		return; // 입력된 것이 없음 
+
+	// 단어가 있는지 확인
+	engWord = engWord.trim(); // 앞 뒤 빈칸 삭제
+	if(localStorage.getItem(engWord) == null) {
+		alert(engWord + "가 없습니다.");
+		return;
+	}
+		
+	// 단어 삭제
+	var korWord = localStorage.removeItem(engWord);
+	//removeItem 메서드를 통해 engWord의 키값을 기준 특정키의 스토리지를 삭제한다.
+	
+	// 사용자 입력 칸 지우기
+	document.getElementById("eng").value = "";
+	document.getElementById("kor").value = engWord + " 삭제됨";
+}
+
+function viewAll() {
+	var win = window.open("12-view.html", "viewwin");
+	//viewAll 메서드는 예제 prac12-03.view와 로직이 일치한다.
+	//window.open 메서드를 통해 12-view.html 페이지를 연다.
+}
+</script>
+</head>
+<body>
+<h3>나의 단어장 만들기</h3>
+<hr>
+<form>
+	<label>영어 <input id="eng" type="text" size="20"></label><br>
+	<label>한글 <input id="kor" type="text" size="20"></label><br>
+	<br>
+	<input type="button" value="단어 저장" onclick="store()">
+	<!-- onclick 이벤트를 통해 store() 메서드 호출  -->
+	<input type="button" value="영단어 검색" onclick="search()">
+	<!-- onclick 이벤트를 통해 search() 메서드 호출  -->
+	<input type="button" value="단어 삭제" onclick="remove()">
+	<!-- onclick 이벤트를 통해 remove() 메서드 호출  -->
+	<input type="button" value="전체 보기" onclick="viewAll()">
+	<!-- onclick 이벤트를 통해 viewAll() 메서드 호출  -->
+</form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세션 스토리지에서 읽기</title>
+</head>
+<body>
+    <h3>세션 스토리지에 구입 리스트 검색</h3><hr>
+    품목명 : <input id = "item" type = "text" size = "10" >
+    개수 : <input id = "count" type = "text" size ="10" >
+    <!-- input 태그를 통해 item에 입력받고 count창을 채움 -->
+    <button id = "retrieve" onclick="retrieve()">검색 </button>
+    <!-- 아이디 : retrieve 버튼에 온클릭이벤트로 retrieve() 메서드 호출 -->
+    <script>
+        var item = document.getElementById("item");
+        var count = document.getElementById("count");
+        // 인풋태그에 item,count 입력받음
+
+        function retrieve() {
+            if (!window.sessionStorage) {
+                alert("세션 스토리지를 지원하지 않습니다.");
+                return;
+                // 창에서 세션스토리지 미지원시
+            }
+            var val = sessionStorage.getItem(item.value);
+            if ( val == null )
+                alert(item.value + "는 구입 리스트에 없습니다.");
+                // 세션스토리지에 아이템이 없을 경우
+            else
+                count.value = val;
+                // 개수의 벨류는 변수 val
+        }
+    </script>
+
+    
+</body>
+</html>

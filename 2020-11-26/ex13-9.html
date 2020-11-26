@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>타이머를 가진 웹 워커 만들기</title>
+</head>
+
+<body>
+    <h3>타이머를 가진 웹 워커 만들기</h3>
+    <hr>
+    <div><span id="timer">타이머카운트</span></div>
+    <!-- span태그의 timer 태그를 가진 타이머 카운트 출력 -->
+    <button id="start" onclick="start()">start</button>
+    <!-- 버튼 ID start 클릭시 start() 메서드 호출 -->
+    <button id="stop" onclick="stop()">stop</button>
+    <!-- 버튼 ID stop 클릭시 stop() 메서드 호출 -->
+    <script>
+        var addWorker = new Worker("timer.js"); // 워커 태스크 생성
+
+        addWorker.onmessage = function (e) {
+            // 워커 테스트케 온메시지
+            document.getElementById("timer").innerHTML = e.data;
+            // HTML 내부
+        }
+
+        function start() {
+            addWorker.postMessage("start");
+            // 워커태스크에 start메시지를 보내서 
+            // js 안에서 start 조건문의 명령문으로 실행
+        }
+
+        function stop() {
+            addWorker.postMessage("stop");
+            // 워커태스크에 start메시지를 보내서 
+            // js 안에서 stop  조건의 조건문으로 명령문 실행 
+        }
+    </script>
+</body>
+
+</html>

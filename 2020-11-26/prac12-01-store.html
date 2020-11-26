@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function store() {
+            if(!window.sessionStorage) { alert ("지원하지 않습니다.");
+            return;}
+            // 브라우저가 세션 스토리지를 지원하지 않으면 alert
+
+            var name = document.getElementById("name").value;
+            // 라벨에서 name을 얻어온다.
+            var sid = document.getElementById("sid").value;
+            // 학번에서 sid를 받아온다.
+            sessionStorage.setItem(name, sid);
+            // 라벨들로 입력받은 벨류들로 setItem 메서드로 저장 해준다.
+
+        }
+    </script>
+</head>
+<body>
+    <h3>이름과 학번 입력</h3>
+    <form>
+        <label>이름 <input id ="name" type="text" size="10"></label>
+        <br>
+        <label>학번 <input id = "sid" type =" text" size="10"></label>
+        <input type="button" value="스토리지에 저장" onclick="store()">
+        <!-- 라베들로 name,과 sid를 입력받은후 버튼을 통해 store() 메서를 호출,
+            세션 스토리지에 저장한다. -->
+    </form>
+    <br>
+    <a href="prac12-01-search.html">이름으로 학번 페이지 </a>
+</body>
+</html>

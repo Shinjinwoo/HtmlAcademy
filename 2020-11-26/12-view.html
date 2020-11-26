@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>나의 단어장 모두 출력</title>
+<style>
+table {
+	/* 테이블 태그에 백그라운드 컬러 엘리스 블루 */
+	background-color : aliceblue;
+}
+span {
+	/* span 태그에 겉태두리 1px 옐로우 그린 */
+	/* 패딩 좌우로 3px씩 */
+	border : 1px solid yellowgreen;
+	padding-left : 3px;
+	padding-right : 3px;
+}
+td, th {
+	/* td,th 태그에 패딩 오른쪽으로 5px */
+	padding-right : 5px;
+}
+</style>
+</head>
+<body>
+<h3>나의 단어장 모두 출력</h3>
+<hr>
+<script>
+if(window.localStorage) {		
+	// 조건문 : 로컬스토리지가 존재하면 아래의 코드들을 실행한다.
+	document.write("<table>");
+	// 테이블 태그
+	for(i=0; i<localStorage.length; i++) {
+		//로컬 스토리지의 길이 만큼 반복문을 수행해서 
+		//로컬스토리지 전부를 다 돌때까지 반복
+		var key = localStorage.key(i);
+		// 변수 key는 로컬스토리지 0부터 시작해서 전부 순회한다.
+		var val = localStorage.getItem(key);
+		// 변수 val는 겟아이탬 메서드를 통해 key값을 입력
+		//테이블과 관련된 태그들로 디자인
+		document.write("<tr>");
+		document.write("<td><span>" + (i+1) + "</span></td>");
+		//변수 i는 0으로 시작해서 +1을 추가해 첫번째 인덱스임을 사용자가
+		//보기 편하게 나타냄 
+		document.write("<th>" + key + "</th>");
+		document.write("<td>" + val + "</td>");
+		document.write("</tr>");
+	}
+	document.write("</table>");
+}
+else {
+	alert("지원하지 않습니다."); 
+	// 로컬스터리지가 존재하지 않거나 창이 지원하지 않는다면 alert 메시지 출력
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이름으로 학번 검색</title>
+    <script>
+        function search() {
+            if (!window.sessionStorage) { alert("지원하지 않는다.");return;}
+            // 브라우저가 세션 스토리지를 지원하지 않을경우
+            var name = document.getElementById("name").value;
+            // 라벨로 입력받은 name
+            var sid = sessionStorage.getItem(name);
+            // sid는 세션 스토리지에서 아이템을 받아옴.
+            if (sid == null) {
+                alert(name + "아직 학생이 없습니다."); return;
+            }
+
+            document.getElementById("sid").value = sid;
+        }
+    </script>
+</head>
+<body>
+    <h3> 이름으로 학번 검색</h3><hr>
+    <form>
+        <label>검색할 이름<input id ="name" type = "text" size = "10" ></label>
+        <!-- 라벨로 입력받은 텍스트를 search()메서드로 넘김 -->
+        <br>
+        <label>검색된 학번 <input id ="sid" type = "text" size = "10"></label>
+        <!-- 시드를 받아옴 -->
+        <input type="button" value="스토리지에 검색" onclick="search()">
+        <!-- 버튼, 온 클릭 이벤트로 search() 메서드 호출 -->
+    </form>
+        <br>
+        <a href = "prac12-01-store.html">이름과 학번 저장 페이지로</a>
+</body>
+</html>
