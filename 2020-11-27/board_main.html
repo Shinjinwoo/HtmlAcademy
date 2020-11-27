@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>미니 프로젝트</title>
+	<!-- Bootstrap CDN -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	<!-- 상단 메뉴 부분 -->
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top shadow-lg">
+		<!-- 토글 버튼이다 브라우저가 줄어들면 메뉴 배열이 
+				 가로 또는 세로 방향으로 변경 된다. ( 즉 반응형 웹 ) -->
+		<!-- 아주 큰 화면 : navbar - expand - xl
+				 중간 크기 화면 : navbar - expand - md
+				 bg-dark : 배경색 설정 ( dark )
+				 navbar-dark : 네비게이션 바 색상  ( dark )
+				 fixed-top : 상단에 고정
+				 shadow-lg : 큰 셰도우
+			-->
+		<!-- .navbar-toggler는 축소(collapse) 플러그인
+		 및 기타 탐색(navigation) 토글 동작과 함께 사용합니다. -->
+		<a class="navbar-brand" href="index.html">CitaCampus</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navMenu">
+			<!-- 몇 가지 클래스와 JavaScript 플러그인을 사용하여 
+			 프로젝트 전체의 콘테츠 가시성을 전환한다.
+			 이 경우에는 브라우저가 축소되면 네비게이션 메뉴바를 축소해서 
+			 보여주기 위한것이다. -->
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<!-- <nav> 기반 navigation을 사용하는 경우 anchors에
+					 .nav-item을 포함해야합니다. -->
+					<a href="board_main.html" class="nav-link">자유게시판</a>
+				</li>
+				<li class="nav-item">
+					<a href="board_main.html" class="nav-link">유머게시판</a>
+				</li>
+				<li class="nav-item">
+					<a href="board_main.html" class="nav-link">정치게시판</a>
+				</li>
+				<li class="nav-item">
+					<a href="board_main.html" class="nav-link">스포츠게시판</a>
+				</li>
+			</ul>
+
+			<ul class="navbar-nav ml-auto">
+				<!-- ml-auto : auto - margin 의 약자이다.  -->
+				<li class="nav-item">
+					<a href="login.html" class="nav-link">로그인</a>
+					<!-- link는 부트트랩에서 제공하는 기본 nav 클래스에 링크를 연결하는 클래스 -->
+					<!-- <nav> 기반 navigation을 사용하는 경우 anchors에.nav-item을 포함해야합니다. -->
+				</li>
+				<li class="nav-item">
+					<a href="join.html" class="nav-link">회원가입</a>
+				</li>
+				<li class="nav-item">
+					<a href="modify_user.html" class="nav-link">정보수정</a>
+				</li>
+				<li class="nav-item">
+					<a href="index.html" class="nav-link">로그아웃</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- 게시글 리스트 -->
+	<div class="container" style="margin-top:100px">
+		<!-- 카드는 유연하고 확장 가능한 콘텐츠 컨테이너입니다. 여기에는 headers 및 footers,
+	다양한 콘텐츠, 상황 별 배경색 및 강력한 display 옵션이 포함됩니다. -->
+		<div class="card shadow">
+			<!-- 카드들에 그림자를 추가하는 클래스 -->
+			<div class="card-body">
+				<!-- 카드들의 몸체이다. 이 페이지는 한장의 카드를 쓴다.-->
+				<h4 class="card-title">게시판 이름</h4>
+				<!-- 카드의 제목  -->
+				<table class="table table-hover" id='board_list'>
+
+					<thead>
+						<tr>
+							<th class="text-center d-none d-md-table-cell">글번호</th>
+							<!-- 표시 속성 디스플레이 유틸리티를 사용하여 구성 요소의 디스플레이 값 등을 빠르고
+						신속하게 전환 할 수 있습니다. 더 일반적인 값중 일부에 대한 지원과 인쇄시 디스플레이
+						제어를위한 일부 추가 기능이 포함됩니다.
+						if ( diplay-size < md) {
+							table-cell = display none
+							} 
+						반응형 웹 프로그래밍을 구현하는 코드 . -->
+							<th class="w-50">제목</th>
+							<!-- 센터 명령어가 따로 없어서 글번호와는 다르게 왼쪽 정렬  -->
+							<th class="text-center d-none d-md-table-cell">작성자</th>
+							<!-- 가운데 정령 -->
+							<th class="text-center d-none d-md-table-cell">작성날짜</th>
+							<!-- 가운데 정렬 -->
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="text-center d-none d-md-table-cell">10</td>
+							<td><a href='board_read.html'>글 제목 입니다</a></td>
+							<td class="text-center d-none d-md-table-cell">홍길동</td>
+							<!-- d-md-tabel-cell : md : 중간크기 사이즈의 디스플레이에서
+							이 클래스가 선언된 셀의 내용이 숨겨진다는 뜻이다.
+							풀어서 해석하자면 모바일 디바이스같이 브라우저 창이 작은 디바이스는
+							작성자와 작성날짜 같은 셀이 숨겨져서 보인다는 뜻. -->
+							medivel
+							<td class="text-center d-none d-md-table-cell">2018-12-12</td>
+
+						</tr>
+						<tr>
+							<td class="text-center d-none d-md-table-cell">10</td>
+							<td><a href='board_read.html'>글 제목 입니다</a></td>
+							<td class="text-center d-none d-md-table-cell">홍길동</td>
+							<td class="text-center d-none d-md-table-cell">2018-12-12</td>
+
+						</tr>
+						<tr>
+							<td class="text-center d-none d-md-table-cell">10</td>
+							<td><a href='board_read.html'>글 제목 입니다</a></td>
+							<td class="text-center d-none d-md-table-cell">홍길동</td>
+							<td class="text-center d-none d-md-table-cell">2018-12-12</td>
+
+						</tr>
+						<tr>
+							<td class="text-center d-none d-md-table-cell">10</td>
+							<td><a href='board_read.html'>글 제목 입니다</a></td>
+							<td class="text-center d-none d-md-table-cell">홍길동</td>
+							<td class="text-center d-none d-md-table-cell">2018-12-12</td>
+
+						</tr>
+						<tr>
+							<td class="text-center d-none d-md-table-cell">10</td>
+							<td><a href='board_read.html'>글 제목 입니다</a></td>
+							<td class="text-center d-none d-md-table-cell">홍길동</td>
+							<td class="text-center d-none d-md-table-cell">2018-12-12</td>
+
+						</tr>
+						<tr>
+							<td class="text-center d-none d-md-table-cell">10</td>
+							<td><a href='board_read.html'>글 제목 입니다</a></td>
+							<td class="text-center d-none d-md-table-cell">홍길동</td>
+							<td class="text-center d-none d-md-table-cell">2018-12-12</td>
+
+						</tr>
+						<tr>
+							<td class="text-center d-none d-md-table-cell">10</td>
+							<td><a href='board_read.html'>글 제목 입니다</a></td>
+							<td class="text-center d-none d-md-table-cell">홍길동</td>
+							<td class="text-center d-none d-md-table-cell">2018-12-12</td>
+
+						</tr>
+						<tr>
+							<td class="text-center d-none d-md-table-cell">10</td>
+							<td><a href='board_read.html'>글 제목 입니다</a></td>
+							<td class="text-center d-none d-md-table-cell">홍길동</td>
+							<td class="text-center d-none d-md-table-cell">2018-12-12</td>
+
+						</tr>
+						<tr>
+							<td class="text-center d-none d-md-table-cell">10</td>
+							<td><a href='board_read.html'>글 제목 입니다</a></td>
+							<td class="text-center d-none d-md-table-cell">홍길동</td>
+							<td class="text-center d-none d-md-table-cell">2018-12-12</td>
+
+						</tr>
+						<tr>
+							<td class="text-center d-none d-md-table-cell">10</td>
+							<td><a href='board_read.html'>글 제목 입니다</a></td>
+							<td class="text-center d-none d-md-table-cell">홍길동</td>
+							<td class="text-center d-none d-md-table-cell">2018-12-12</td>
+
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="d-none d-md-block">
+					<!-- 일련의 관련 콘텐츠가 여러 페이지에 존재 함을 나타 내기 위해
+					 페이지 매김을 표시하는 문서 및 예입니다. -->
+					<ul class="pagination justify-content-center">
+						<!-- flexbox 컨테이너에서 justify-content 유틸리티를 사용하여 
+						기본 축 (시작할 x 축, flex-direction : 열인 경우 y 축)에서 
+						flex 항목의 정렬을 변경합니다. 
+						시작 (브라우저 기본값), end, center, between 또는 around 중에서 선택합니다. -->
+						<li class="page-item">
+							<!-- paginations를 이용하기 위해서는 의 하위 항목에 
+						명시적 클래스 (.page-item, .page-link)가 필요합니다. -->
+							<a href="#" class="page-link">이전</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">1</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">2</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">3</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">4</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">5</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">6</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">7</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">8</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">9</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">10</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">다음</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="d-block d-md-none">
+					<ul class="pagination justify-content-center">
+						<li class="page-item">
+							<a href="#" class="page-link">이전</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">다음</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="text-right">
+					<a href="board_write.html" class="btn btn-primary">글쓰기</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid bg-dark text-white" style="margin-top:50px;padding-top:30px;padding-bottom:30px">
+		<div class="container">
+			<!-- fill width 컨테이너에는 
+		.container-fluid를 사용하여 뷰포트의 전체 너비에 적용할 수 있다.. -->
+			<!-- bg-dark : 배경 검정 -->
+			<!-- style : 위쪽 마진 50px
+				 위쪽 패딩 30px
+				 아래쪽 패딩 30px -->
+			<p>http://www.</p>
+			<p>게시판 예제</p>
+			<p>사업자번호 : 000-111-222</p>
+		</div>
+	</div>
+</body>
+
+</html>
