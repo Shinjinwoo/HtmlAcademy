@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"/> -->
+    <title>jQuery</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css">
+    <!--제이쿼리 모바일css파일 불러오기-->
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+<script>
+    var count=0;   //전체 레코드 개수를 위한 전역 변수
+    var Doc;       //XML 문서 DOM 복합 객체 참조를 위한 전역 변수
+   
+    $(document).ready( function() {
+        $.ajax({
+            url: 'tour1.xml',
+            // xml 파일의 주소
+            type: 'get',
+            // 데이터를 get으로 받아온다는 명령어
+            dataType: 'xml',
+            // 데이터 타입은 xml
+            timeout: 1000,
+            // 응답시간 제한은 1000ms 
+            success: function(xmlDoc) {
+                // 성공 콜백 메서드
+                // URL에서 xml파일을 불러들인다.
+                Doc=xmlDoc;
+                // 전역변수 Doc에 지역변수 xmlDoc를 저장
+                count = $(xmlDoc).find('attraction').size();
+                // 레코드 개수를 위한 전역변수 count에
+                // xml파일에서 attraction 태그의 사이즈를 리턴함으로써
+                // item의 개수를 카운트 한다.
+                displayTour();
+                // displayTour 메서드 콜
+            },
+            error: function() {
+                // 실패 콜백 메서드
+                $('body').html('<div>Error!!</div>');
+            }
+        });
+        
+    });
+
+    //관광지 정보를 리스트뷰로 표시
+    function displayTour() {
+        //xml 파일들을 html 파일에서 보이게 해주는 메서드다.
+        var i, tagList='', country='', name='', location='';
+        //xml 파일의 태그 리스트와 태그들을 변수로 선언.
+        tagList = '<li data-role="list-divider">관광지 목록</li>';
+        //태그 리스트의 초기에 주어지는 기본 내용을 선언.
+          if(count > 0) {
+              //ajax 함수에서 item의 개수가 1개 이상인 경우 실행 
+              for( i = 0; i < count; i+= 1) {
+                  // item의 숫자만큼 반복문 실행 
+                $record = $(Doc).find('attraction').eq(i);
+                // jqery record 변수에서 Doc를 호출한후 attraction 태그는 i 와 같다는 뜻
+    tagList += '<li><a href="#"><img src="' + $record.find('picture').text() + '">';
+    tagList += '<p class="ui-li-aside">' + $record.attr('country') + '</p>';
+    tagList += '<h2>' + $record.find('name').text() + '</h2>';
+    tagList += '<p>지역 : ' + $record.find('location').text() + '</p></a></li>';
+                // 반복문을 수행하면서 태그리스트에 HTML 문장을 접두와 접미에 붙여주고 요소들을 
+                // record 로 불러들여 item을 하나씩 가져온다.
+              }
+          }
+          $('#attractionListArea').html(tagList);
+          //.html () : 선택한 html 요소에서 데이터를 가져온다.
+          $('#attractionListArea').listview('refresh');
+          // 리스트 뷰 갱신.
+    }
+</script></head>
+<body>
+    <div data-role="page">
+        <!-- Jqery mobile .css파일에서 디자인을 받아들이기 위한 태그이다. -->
+        <div data-role="header">
+            <!-- 위와 동일 -->
+            <h1>세계 유명관광지 안내</h1>
+        </div>
+        <div data-role="content">
+        <ul data-role="listview" id="attractionListArea" data-diver-theme="b">
+            <!-- 리스트뷰라는 디자인 테마를 불러오며 테마의 종류는 b 테마로
+                 리스뷰의 id는 태그리스트를 .html () 로 가져온 attractionListArea 이다. -->
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <!-- 푸터이다. -->
+            <h4>월드 관광</h4>
+        </div>
+    </div>
+</body></html>
