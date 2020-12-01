@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<booklist>
+    <book kind = "소설" >
+        <title>해리포터와 마법사의 돌</title>
+        <author>조앤 K 롤링</author>
+        <publisher> 동네출판사 </publisher>
+        <price>5000원</price>
+    </book>
+
+    <book kind = "소설 " >
+        <title>해리포터와 비밀의 방</title>
+        <author>조앤 K 롤링</author>
+        <publisher> 동네출판사 </publisher>
+        <price>5000원</price>
+    </book>
+
+    <book kind = "소설 " >
+        <title>해리포터와 아즈카반의 죄수</title>
+        <author>조앤 K 롤링</author>
+        <publisher> 동네출판사 </publisher>
+        <price>5000원</price>
+    </book>
+
+    <book kind = "소설 " >
+        <title>해리포터와 불의 잔</title>
+        <author>조앤 K 롤링</author>
+        <publisher> 동네출판사 </publisher>
+        <price>5000원</price>
+    </book>
+</booklist>
